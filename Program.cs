@@ -7,23 +7,18 @@ namespace CSharp.Collections.Study
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int> { 10, 14, 85, 74, 56 };   //  collection initializer
+            //  List, LinkedList, Set, Map, Queue, Stack
+            
+            ICollection<int> intList = new List<int>();   //  always program for an interface
+            ICollection<int> intLinkedList = new LinkedList<int>(); //  LinkedList doesn't implement IList<T>, so using ICollection<T>
 
-            //  This is the iterator pattern
-            //  https://en.wikipedia.org/wiki/Iterator_pattern#C#
-            IEnumerator<int> enumerator = numbers.GetEnumerator();
+            ISet<int> intSet = new HashSet<int> { 10, 10, 10, 11, 11};
 
-            while (enumerator.MoveNext())
-            {
-                Console.WriteLine(enumerator.Current);
-            }
+            Queue<int> intQueue = new Queue<int>();
 
+            Stack<int> intStack = new Stack<int>();
 
-            //  this is a syntactical sugar
-            foreach (var n in numbers)
-            {
-                Console.WriteLine(n);
-            }
+            IDictionary<string, int> dict = new Dictionary<string, int>();
         }
     }
 }
